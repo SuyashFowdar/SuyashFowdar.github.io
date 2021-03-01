@@ -196,8 +196,6 @@ $breakpoints: ($all, $sm, $lg);
 }
 
 .container {
-	height: 100vh;
-
 	main {
 		margin-top: 40px;
 
@@ -391,11 +389,12 @@ $breakpoints: ($all, $sm, $lg);
 				}
 				
 				&.work-3 {
-					background-image: url(../img/tic-tac-toe.png);
+					background-image: url(../img/tech-news.png);
 				}
 				
 				&.work-4 {
-					background-image: url(../img/connect-bot.png);
+					background-image: url(../img/bike-shooter.png);
+					background-position-x: 80%;
 				}
 			}
 		}
@@ -423,5 +422,13 @@ $breakpoints: ($all, $sm, $lg);
 				width: 100%;
 			}
 		}
+	}
+}
+
+footer {
+	padding: 16px 0;
+
+	& > div a {
+		margin: 0 16px;
 	}
 }
