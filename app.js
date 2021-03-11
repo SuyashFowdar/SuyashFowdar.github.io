@@ -6,8 +6,8 @@ let skills = document.getElementById('skills'),
   header = document.querySelector('header');
 
 if (window.innerWidth <= 600) {
-  skillsOffset = skills.offsetTop - window.innerHeight + 40;
-  projectsOffset = projects.offsetTop - window.innerHeight + 40;
+  skillsOffset = skills.offsetTop - window.innerHeight + 80;
+  projectsOffset = projects.offsetTop - window.innerHeight + 80;
 } else {
   skillsOffset = skills.offsetTop - 40;
   projectsOffset = projects.offsetTop - 40;
@@ -28,10 +28,20 @@ window.onscroll = function() {
       projectsLink.classList.remove('current-link');
     }
   } else {
-    if (header.classList.contains('even-color')) {
-      header.classList.remove('even-color');
-      skillsLink.classList.remove('current-link');
-      projectsLink.classList.add('current-link');
+    skillsLink.classList.remove('current-link');
+    projectsLink.classList.add('current-link');
+    if (window.innerWidth <= 600) {
+      let footer = document.querySelector('footer'),
+        footerOffset = footer.offsetTop - window.innerHeight + 40;
+      if (window.scrollY < footerOffset) {
+        header.classList.remove('even-color');
+      } else {
+        header.classList.add('even-color');
+      }
+    } else {
+      if (header.classList.contains('even-color')) {
+        header.classList.remove('even-color');
+      }
     }
   }
 }

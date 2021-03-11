@@ -197,7 +197,9 @@ $breakpoints: ($all, $sm, $lg);
 
 .container {
 	main {
-		margin-top: 40px;
+		@include lg {
+			margin-top: 40px;
+		}
 
 		section {
 			h3 {
@@ -324,6 +326,18 @@ $breakpoints: ($all, $sm, $lg);
 				}
 
 				& > div {
+					@media screen and (min-width: 600px) and (max-width: 775px) {
+						div {
+							min-width: 90%;
+						}
+					}
+
+					@media screen and (min-width: 776px) {
+						div {
+							min-width: 45%;
+						}
+					}
+
 					article {
 						margin: 20px;
 					}
@@ -410,6 +424,10 @@ $breakpoints: ($all, $sm, $lg);
 			@extend .dark;
 		}
 
+		@include sm {
+			bottom: 0;
+		}
+
 		a {
 			height: 40px;
 			transition: all 1s;
@@ -427,6 +445,10 @@ $breakpoints: ($all, $sm, $lg);
 
 footer {
 	padding: 16px 0;
+
+	@include sm {
+		margin-bottom: 40px;
+	}
 
 	& > div a {
 		margin: 0 16px;

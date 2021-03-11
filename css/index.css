@@ -415,135 +415,145 @@ a {
   font-weight: bold;
   cursor: initial !important; }
 
-.container main {
-  margin-top: 40px; }
-  .container main section h3 {
-    margin: 0; }
-  .container main section:first-child {
-    min-height: calc(100vh - 40px);
-    background-image: radial-gradient(#555555, #3c3c3c, #323232); }
-    .container main section:first-child > div {
-      height: 60%;
-      margin: 20px; }
-      .container main section:first-child > div h1 {
-        font-family: 'Courier New', Courier, monospace;
-        margin-top: 0; }
+@media screen and (min-width: 601px) and (max-width: 4000px) {
+  .container main {
+    margin-top: 40px; } }
+.container main section h3 {
+  margin: 0; }
+.container main section:first-child {
+  min-height: calc(100vh - 40px);
+  background-image: radial-gradient(#555555, #3c3c3c, #323232); }
+  .container main section:first-child > div {
+    height: 60%;
+    margin: 20px; }
+    .container main section:first-child > div h1 {
+      font-family: 'Courier New', Courier, monospace;
+      margin-top: 0; }
+      @media screen and (min-width: 601px) and (max-width: 4000px) {
+        .container main section:first-child > div h1 {
+          font-size: calc(10px + 3vw); } }
+      @media screen and (min-width: 0) and (max-width: 600px) {
+        .container main section:first-child > div h1 {
+          font-size: calc(10px + 6vw); } }
+      .container main section:first-child > div h1::after {
+        content: ' ';
+        background-color: #f0f0f0;
+        animation-name: blink;
+        animation-duration: 1s;
+        animation-iteration-count: infinite; }
         @media screen and (min-width: 601px) and (max-width: 4000px) {
-          .container main section:first-child > div h1 {
-            font-size: calc(10px + 3vw); } }
+          .container main section:first-child > div h1::after {
+            width: 2vw;
+            height: 3.5vw;
+            margin-left: 0.3vw;
+            margin-top: 0.4vw; } }
         @media screen and (min-width: 0) and (max-width: 600px) {
-          .container main section:first-child > div h1 {
-            font-size: calc(10px + 6vw); } }
-        .container main section:first-child > div h1::after {
-          content: ' ';
-          background-color: #f0f0f0;
-          animation-name: blink;
-          animation-duration: 1s;
-          animation-iteration-count: infinite; }
-          @media screen and (min-width: 601px) and (max-width: 4000px) {
-            .container main section:first-child > div h1::after {
-              width: 2vw;
-              height: 3.5vw;
-              margin-left: 0.3vw;
-              margin-top: 0.4vw; } }
-          @media screen and (min-width: 0) and (max-width: 600px) {
-            .container main section:first-child > div h1::after {
-              width: 4vw;
-              height: 7vw;
-              margin-left: 0.6vw;
-              margin-top: 0.8vw; } }
-      .container main section:first-child > div h2 {
-        margin: 0; }
-        @media screen and (min-width: 601px) and (max-width: 4000px) {
-          .container main section:first-child > div h2 {
-            font-size: calc(8px + 2vw); } }
-        @media screen and (min-width: 0) and (max-width: 600px) {
-          .container main section:first-child > div h2 {
-            font-size: calc(8px + 4vw); } }
-      .container main section:first-child > div:last-child {
-        font-size: 20px;
-        padding: 40px; }
-        @media screen and (min-width: 601px) and (max-width: 4000px) {
-          .container main section:first-child > div:last-child {
-            border-left: 2px solid white; } }
-        @media screen and (min-width: 0) and (max-width: 600px) {
-          .container main section:first-child > div:last-child {
-            border-top: 2px solid white; } }
-        .container main section:first-child > div:last-child p {
-          margin: 10px 0;
-          opacity: 0;
-          animation-name: appear;
-          animation-duration: 2s;
-          animation-fill-mode: forwards; }
-          .container main section:first-child > div:last-child p:first-of-type {
-            animation-delay: 1s; }
-          .container main section:first-child > div:last-child p:nth-of-type(2) {
-            animation-delay: 3s; }
-          .container main section:first-child > div:last-child p:last-of-type {
-            animation-delay: 5s; }
-        .container main section:first-child > div:last-child .links {
-          margin-top: 16px;
-          opacity: 0;
-          animation-name: appear;
-          animation-duration: 2s;
-          animation-fill-mode: forwards;
-          animation-delay: 7s; }
-          .container main section:first-child > div:last-child .links a {
-            margin: 20px; }
-            .container main section:first-child > div:last-child .links a:last-child {
-              font-weight: bold;
-              padding: 10px; }
-  .container main section:nth-child(2) {
-    min-height: calc(80vh - 40px); }
-    .container main section:nth-child(2) h3 {
-      font-size: 22px; }
-    .container main section:nth-child(2) > div article {
-      margin: 20px; }
-  .container main section:last-child {
-    min-height: calc(100vh - 40px); }
-    .container main section:last-child h3 {
-      font-size: 22px; }
-    .container main section:last-child > div {
-      margin: 40px 0; }
-      .container main section:last-child > div article {
-        border-radius: 5px; }
-        .container main section:last-child > div article > div:last-child {
-          padding: 10px; }
-        @media screen and (min-width: 601px) and (max-width: 4000px) {
-          .container main section:last-child > div article {
-            margin: 20px 2vw; } }
-        @media screen and (min-width: 0) and (max-width: 600px) {
-          .container main section:last-child > div article {
-            margin: 4vw; } }
-        .container main section:last-child > div article a {
-          padding: 8px; }
-  .container main section ul {
-    margin: 20px 0;
-    padding: 0;
-    list-style-type: none; }
-    .container main section ul li {
-      margin-bottom: 10px; }
-  .container main section .img {
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-width: calc(50px + 10vw);
-    max-width: calc(50px + 10vw);
-    height: 100%;
-    border-radius: 5px 0 0 5px; }
-    .container main section .img.work-1 {
-      background-image: url(../img/vaishnava.png); }
-    .container main section .img.work-2 {
-      background-image: url(../img/krishna-shop.png); }
-    .container main section .img.work-3 {
-      background-image: url(../img/tech-news.png); }
-    .container main section .img.work-4 {
-      background-image: url(../img/bike-shooter.png);
-      background-position-x: 80%; }
+          .container main section:first-child > div h1::after {
+            width: 4vw;
+            height: 7vw;
+            margin-left: 0.6vw;
+            margin-top: 0.8vw; } }
+    .container main section:first-child > div h2 {
+      margin: 0; }
+      @media screen and (min-width: 601px) and (max-width: 4000px) {
+        .container main section:first-child > div h2 {
+          font-size: calc(8px + 2vw); } }
+      @media screen and (min-width: 0) and (max-width: 600px) {
+        .container main section:first-child > div h2 {
+          font-size: calc(8px + 4vw); } }
+    .container main section:first-child > div:last-child {
+      font-size: 20px;
+      padding: 40px; }
+      @media screen and (min-width: 601px) and (max-width: 4000px) {
+        .container main section:first-child > div:last-child {
+          border-left: 2px solid white; } }
+      @media screen and (min-width: 0) and (max-width: 600px) {
+        .container main section:first-child > div:last-child {
+          border-top: 2px solid white; } }
+      .container main section:first-child > div:last-child p {
+        margin: 10px 0;
+        opacity: 0;
+        animation-name: appear;
+        animation-duration: 2s;
+        animation-fill-mode: forwards; }
+        .container main section:first-child > div:last-child p:first-of-type {
+          animation-delay: 1s; }
+        .container main section:first-child > div:last-child p:nth-of-type(2) {
+          animation-delay: 3s; }
+        .container main section:first-child > div:last-child p:last-of-type {
+          animation-delay: 5s; }
+      .container main section:first-child > div:last-child .links {
+        margin-top: 16px;
+        opacity: 0;
+        animation-name: appear;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        animation-delay: 7s; }
+        .container main section:first-child > div:last-child .links a {
+          margin: 20px; }
+          .container main section:first-child > div:last-child .links a:last-child {
+            font-weight: bold;
+            padding: 10px; }
+.container main section:nth-child(2) {
+  min-height: calc(80vh - 40px); }
+  .container main section:nth-child(2) h3 {
+    font-size: 22px; }
+  @media screen and (min-width: 600px) and (max-width: 775px) {
+    .container main section:nth-child(2) > div div {
+      min-width: 90%; } }
+  @media screen and (min-width: 776px) {
+    .container main section:nth-child(2) > div div {
+      min-width: 45%; } }
+  .container main section:nth-child(2) > div article {
+    margin: 20px; }
+.container main section:last-child {
+  min-height: calc(100vh - 40px); }
+  .container main section:last-child h3 {
+    font-size: 22px; }
+  .container main section:last-child > div {
+    margin: 40px 0; }
+    .container main section:last-child > div article {
+      border-radius: 5px; }
+      .container main section:last-child > div article > div:last-child {
+        padding: 10px; }
+      @media screen and (min-width: 601px) and (max-width: 4000px) {
+        .container main section:last-child > div article {
+          margin: 20px 2vw; } }
+      @media screen and (min-width: 0) and (max-width: 600px) {
+        .container main section:last-child > div article {
+          margin: 4vw; } }
+      .container main section:last-child > div article a {
+        padding: 8px; }
+.container main section ul {
+  margin: 20px 0;
+  padding: 0;
+  list-style-type: none; }
+  .container main section ul li {
+    margin-bottom: 10px; }
+.container main section .img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-width: calc(50px + 10vw);
+  max-width: calc(50px + 10vw);
+  height: 100%;
+  border-radius: 5px 0 0 5px; }
+  .container main section .img.work-1 {
+    background-image: url(../img/vaishnava.png); }
+  .container main section .img.work-2 {
+    background-image: url(../img/krishna-shop.png); }
+  .container main section .img.work-3 {
+    background-image: url(../img/tech-news.png); }
+  .container main section .img.work-4 {
+    background-image: url(../img/bike-shooter.png);
+    background-position-x: 80%; }
 .container header {
   position: fixed;
   background-color: white;
   transition: all 0.5s;
   z-index: 2; }
+  @media screen and (min-width: 0) and (max-width: 600px) {
+    .container header {
+      bottom: 0; } }
   .container header a {
     height: 40px;
     transition: all 1s; }
@@ -556,6 +566,9 @@ a {
 
 footer {
   padding: 16px 0; }
+  @media screen and (min-width: 0) and (max-width: 600px) {
+    footer {
+      margin-bottom: 40px; } }
   footer > div a {
     margin: 0 16px; }
 
