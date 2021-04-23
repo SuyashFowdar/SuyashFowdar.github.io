@@ -5,7 +5,7 @@
 
 ## Demo Link
 
-[Go to the Portfolio](https://krishnzzz.github.io/portfolio/)
+[Go to the Portfolio](https://suyashfowdar.github.io/)
 
 ## Built With
 
@@ -31,7 +31,7 @@ Contributions, issues and feature requests are welcome! Start by:
 ## Author
 
 👤 Suyash Fowdar
-Github: [@Krishnzzz](https://github.com/krishnzzz)
+Github: [@Krishnzzz](https://github.com/SuyashFowdar)
 
 ## Show your Support
 Give a ⭐ if you like this project!
