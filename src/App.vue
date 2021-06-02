@@ -1,0 +1,487 @@
+<template>
+  <div class="col container">
+		<header class="row main-center-lg main-space-between-sm shadow-15 w-100">
+			<a href="#me" class="clickable row main-center cross-center current-link" id="me-link">Me</a>
+			<a href="#skills" class="clickable row main-center cross-center" id="skills-link">Skills</a>
+			<a href="#projects" class="clickable row main-center cross-center" id="projects-link">Projects</a>
+		</header>
+    <main class="w-100 h-100">
+      <router-view></router-view>
+    </main>
+    <footer class="row">
+      <div class="row main-center cross-center w-100">
+        <a href="https://www.github.com/suyashfowdar/" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+        <a href="https://twitter.com/SuyashFowdar" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/suyash-fowdar/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="mailto:suyash.krishna9@gmail.com"><i class="fas fab fa-envelope fa-2x"></i></a>
+      </div>
+    </footer>
+  </div>
+</template>
+<style lang="scss">
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.clickable {
+	color: inherit;
+
+	&:hover {
+		border-radius: 3px;
+		background-color: rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+	}
+
+	&:active {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+}
+
+$all:('', 0, 4000px);
+$sm:('-sm', 0, 600px);
+$lg:('-lg', 601px, 4000px);
+
+$breakpoints: ($all, $sm, $lg);
+
+@mixin sm {
+	@media screen and (min-width: nth($sm, 2)) and (max-width: nth($sm, 3)) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media screen and (min-width: nth($lg, 2)) and (max-width: nth($lg, 3)) {
+		@content;
+	}
+}
+
+@each $breakpoint in $breakpoints {
+	$point: nth($breakpoint, 1);
+  $min: nth($breakpoint, 2);
+	$max: nth($breakpoint, 3);
+	
+  @media screen and (min-width: $min) and (max-width: $max) {
+    .hide#{$point} {
+      display: none;
+    }
+
+    .col#{$point},
+    .col-reverse#{$point},
+    .row#{$point} {
+      display: flex;
+    }
+
+    .col#{$point} {
+      flex-direction: column;
+		}
+		
+		.col-reverse#{$point} {
+			flex-direction: column-reverse;
+		}
+
+    .main-center#{$point} {
+      justify-content: center;
+    }
+
+    .main-start#{$point} {
+      justify-content: flex-start;
+    }
+
+    .main-end#{$point} {
+      justify-content: flex-end;
+    }
+
+    .main-space-between#{$point} {
+      justify-content: space-between;
+    }
+
+    .main-space-around#{$point} {
+      justify-content: space-around;
+    }
+
+    .cross-center#{$point} {
+      align-items: center;
+    }
+
+    .cross-start#{$point} {
+      align-items: flex-start;
+    }
+
+    .cross-end#{$point} {
+      align-items: flex-end;
+    }
+
+    .cross-baseline#{$point} {
+      align-items: baseline;
+    }
+
+    .flex#{$point} {
+      flex: 1 1;
+    }
+
+    .wrap#{$point} {
+      flex-wrap: wrap;
+    }
+
+    .h-100#{$point} {
+      height: 100%;
+    }
+
+		.shadow-15#{$point} {
+			box-shadow: 0px 0px 15px 0px rgb(100, 100, 100);
+		}
+		
+		.layout-padding8#{$point} {
+			&>div,
+			&>b,
+			&>button,
+			&>a,
+			&>input {
+				padding: 8px;
+			}
+		}
+		
+		.layout-padding4#{$point} {
+			&>div,
+			&>b,
+			&>button,
+			&>a,
+			&>input {
+				padding: 4px;
+			}
+		}
+		
+		.layout-margin8#{$point} {
+			&>div,
+			&>b,
+			&>button,
+			&>a,
+			&>input {
+				margin: 8px;
+			}
+		}
+		
+		.layout-margin4#{$point} {
+			&>div,
+			&>b,
+			&>button,
+			&>a,
+			&>input {
+				margin: 4px;
+			}
+		}
+
+    @for $i from 1 through 20 {
+      $width: percentage($i*5/100);
+
+      .w-#{$i*5}#{$point} {
+        width: $width;
+      }
+    }
+	}
+}
+
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes appear {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.dark {
+	background-color: rgb(50, 50, 50);
+	color: rgb(240, 240, 240);
+
+	.clickable:hover {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
+}
+
+.current-link {
+	font-weight: bold;
+	cursor: initial !important;
+}
+
+.container {
+	main {
+		@include lg {
+			margin-top: 40px;
+		}
+
+		section {
+			h3 {
+				margin: 0;
+			}
+			
+			&:nth-child(odd) {
+				@extend .dark;
+			}
+			
+			&:first-child {
+				min-height: calc(100vh - 40px);
+				background-image: radial-gradient(rgb(85, 85, 85), rgb(60, 60, 60), rgb(50, 50, 50));
+
+				& > div {
+					height: 60%;
+					margin: 20px;
+					
+					h1 {
+						font-family: 'Courier New', Courier, monospace;
+						margin-top: 0;
+						
+						@include lg {
+							font-size: calc(10px + 3vw);
+						}
+						
+						@include sm {
+							font-size: calc(10px + 6vw);
+						}
+						
+						&::after {
+							content: ' ';
+							background-color: rgb(240, 240, 240);
+							animation-name: blink;
+							animation-duration: 1s;
+							animation-iteration-count: infinite;
+							
+							@include lg {
+								width: 2vw;
+								height: 3.5vw;
+								margin-left: 0.3vw;
+								margin-top: 0.4vw;
+							}
+							
+							@include sm {
+								width: 4vw;
+								height: 7vw;
+								margin-left: 0.6vw;
+								margin-top: 0.8vw;
+							}
+						}
+					}
+					
+					h2 {
+						margin: 0;
+
+						@include lg {
+							font-size: calc(8px + 2vw);
+						}
+						
+						@include sm {
+							font-size: calc(8px + 4vw);
+						}
+					}
+
+					&:last-child {
+						font-size: 20px;
+						padding: 40px;
+
+						@include lg {
+							border-left: 2px solid white;
+						}
+
+						@include sm {
+							border-top: 2px solid white;
+						}
+
+						p {
+							margin: 10px 0;
+							opacity: 0;
+							animation-name: appear;
+							animation-duration: 2s;
+							animation-fill-mode: forwards;
+	
+							&:first-of-type {
+								animation-delay: 1s;
+							}
+							
+							&:nth-of-type(2) {
+								animation-delay: 3s;
+							}
+							
+							&:last-of-type {
+								animation-delay: 5s;
+							}
+						}
+
+						.links {
+							margin-top: 16px;
+							opacity: 0;
+							animation-name: appear;
+							animation-duration: 2s;
+							animation-fill-mode: forwards;
+							animation-delay: 7s;
+	
+							a {
+								margin: 20px;
+	
+								&:last-child {
+									font-weight: bold;
+									padding: 10px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&:nth-child(2) {
+				min-height: calc(80vh - 40px);
+
+				h3 {
+					font-size: 22px;
+				}
+
+				& > div {
+					@media screen and (min-width: 600px) and (max-width: 775px) {
+						div {
+							min-width: 90%;
+						}
+					}
+
+					@media screen and (min-width: 776px) {
+						div {
+							min-width: 45%;
+						}
+					}
+
+					article {
+						margin: 20px;
+					}
+				}
+			}
+
+			&:last-child {
+				min-height: calc(100vh - 40px);
+
+				h3 {
+					font-size: 22px;
+				}
+
+				& > div {
+					margin: 40px 0;
+
+					article {
+						border-radius: 5px;
+
+						& > div:last-child {
+							padding: 10px;
+						}
+
+						@include lg {
+							margin: 20px 2vw;
+						}
+
+						@include sm {
+							margin: 4vw;
+						}
+						
+						a {
+							padding: 8px;
+						}
+					}
+				}
+			}
+
+			ul {
+				margin: 20px 0;
+				padding: 0;
+				list-style-type: none;
+
+				li {
+					margin-bottom: 10px;
+				}
+			}
+
+			.img {
+				background-size: cover;
+				background-repeat: no-repeat;
+				min-width: calc(50px + 10vw);
+				max-width: calc(50px + 10vw);
+				height: 100%;
+				border-radius: 5px 0 0 5px;
+				
+				&.work-1 {
+					background-image: url(./assets/img/vaishnava.png);
+				}
+				
+				&.work-2 {
+					background-image: url(./assets/img/krishna-shop.png);
+				}
+				
+				&.work-3 {
+					background-image: url(./assets/img/tech-news.png);
+				}
+				
+				&.work-4 {
+					background-image: url(./assets/img/bike-shooter.png);
+					background-position-x: 80%;
+				}
+				
+				&.work-5 {
+					background-image: url(./assets/img/meow.png);
+				}
+				
+				&.work-6 {
+					background-image: url(./assets/img/baby-tracker.png);
+				}
+			}
+		}
+	}
+
+	header {
+		position: fixed;
+		background-color: white;
+		transition: all 0.5s;
+		z-index: 2;
+
+		&.even-color {
+			@extend .dark;
+		}
+
+		@include sm {
+			bottom: 0;
+		}
+
+		a {
+			height: 40px;
+			transition: all 1s;
+
+			@include lg {
+				width: 150px;
+			}
+
+			@include sm {
+				width: 100%;
+			}
+		}
+	}
+}
+
+footer {
+	padding: 16px 0;
+
+	@include sm {
+		margin-bottom: 40px;
+	}
+
+	& > div a {
+		margin: 0 16px;
+	}
+}
+
+</style>
