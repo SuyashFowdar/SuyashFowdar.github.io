@@ -1,24 +1,49 @@
 <template>
-  <div class="col container">
-		<header class="row main-center-lg main-space-between-sm shadow-15 w-100">
-			<a href="#me" class="clickable row main-center cross-center current-link" id="me-link">Me</a>
-			<a href="#skills" class="clickable row main-center cross-center" id="skills-link">Skills</a>
-			<a href="#projects" class="clickable row main-center cross-center" id="projects-link">Projects</a>
-		</header>
-    <main class="w-100 h-100">
-      <router-view></router-view>
-    </main>
-    <footer class="row">
-      <div class="row main-center cross-center w-100">
-        <a href="https://www.github.com/suyashfowdar/" target="_blank"><i class="fab fa-github fa-2x"></i></a>
-        <a href="https://twitter.com/SuyashFowdar" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
-        <a href="https://www.linkedin.com/in/suyash-fowdar/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-        <a href="mailto:suyash.krishna9@gmail.com"><i class="fas fab fa-envelope fa-2x"></i></a>
-      </div>
-    </footer>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 <style lang="scss">
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition-duration: 0.5s;
+  transition-property: height, opacity, transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  overflow: hidden;
+
+  .links {
+    transition-duration: 0.5s;
+    transition-property: height, opacity, transform;
+    transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  }
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(2em, 0);
+
+  .links {
+    transform: translate(15vw, -15vw);
+  }
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-2em, 0);
+
+  .links {
+    transform: translate(-15vw, 15vw);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html {
 	scroll-behavior: smooth;
 }
@@ -202,6 +227,11 @@ $breakpoints: ($all, $sm, $lg);
 	to { opacity: 1; }
 }
 
+@keyframes disappear {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
 .dark {
 	background-color: rgb(50, 50, 50);
 	color: rgb(240, 240, 240);
@@ -213,188 +243,26 @@ $breakpoints: ($all, $sm, $lg);
 
 .current-link {
 	font-weight: bold;
-	cursor: initial !important;
+	cursor: default !important;
 }
 
 .container {
 	main {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 104px);
+
 		@include lg {
 			margin-top: 40px;
 		}
 
-		section {
+		@include sm {
+			margin-top: 64px;
+		}
+
+		.section {
 			h3 {
 				margin: 0;
-			}
-			
-			&:nth-child(odd) {
-				@extend .dark;
-			}
-			
-			&:first-child {
-				min-height: calc(100vh - 40px);
-				background-image: radial-gradient(rgb(85, 85, 85), rgb(60, 60, 60), rgb(50, 50, 50));
-
-				& > div {
-					height: 60%;
-					margin: 20px;
-					
-					h1 {
-						font-family: 'Courier New', Courier, monospace;
-						margin-top: 0;
-						
-						@include lg {
-							font-size: calc(10px + 3vw);
-						}
-						
-						@include sm {
-							font-size: calc(10px + 6vw);
-						}
-						
-						&::after {
-							content: ' ';
-							background-color: rgb(240, 240, 240);
-							animation-name: blink;
-							animation-duration: 1s;
-							animation-iteration-count: infinite;
-							
-							@include lg {
-								width: 2vw;
-								height: 3.5vw;
-								margin-left: 0.3vw;
-								margin-top: 0.4vw;
-							}
-							
-							@include sm {
-								width: 4vw;
-								height: 7vw;
-								margin-left: 0.6vw;
-								margin-top: 0.8vw;
-							}
-						}
-					}
-					
-					h2 {
-						margin: 0;
-
-						@include lg {
-							font-size: calc(8px + 2vw);
-						}
-						
-						@include sm {
-							font-size: calc(8px + 4vw);
-						}
-					}
-
-					&:last-child {
-						font-size: 20px;
-						padding: 40px;
-
-						@include lg {
-							border-left: 2px solid white;
-						}
-
-						@include sm {
-							border-top: 2px solid white;
-						}
-
-						p {
-							margin: 10px 0;
-							opacity: 0;
-							animation-name: appear;
-							animation-duration: 2s;
-							animation-fill-mode: forwards;
-	
-							&:first-of-type {
-								animation-delay: 1s;
-							}
-							
-							&:nth-of-type(2) {
-								animation-delay: 3s;
-							}
-							
-							&:last-of-type {
-								animation-delay: 5s;
-							}
-						}
-
-						.links {
-							margin-top: 16px;
-							opacity: 0;
-							animation-name: appear;
-							animation-duration: 2s;
-							animation-fill-mode: forwards;
-							animation-delay: 7s;
-	
-							a {
-								margin: 20px;
-	
-								&:last-child {
-									font-weight: bold;
-									padding: 10px;
-								}
-							}
-						}
-					}
-				}
-			}
-
-			&:nth-child(2) {
-				min-height: calc(80vh - 40px);
-
-				h3 {
-					font-size: 22px;
-				}
-
-				& > div {
-					@media screen and (min-width: 600px) and (max-width: 775px) {
-						div {
-							min-width: 90%;
-						}
-					}
-
-					@media screen and (min-width: 776px) {
-						div {
-							min-width: 45%;
-						}
-					}
-
-					article {
-						margin: 20px;
-					}
-				}
-			}
-
-			&:last-child {
-				min-height: calc(100vh - 40px);
-
-				h3 {
-					font-size: 22px;
-				}
-
-				& > div {
-					margin: 40px 0;
-
-					article {
-						border-radius: 5px;
-
-						& > div:last-child {
-							padding: 10px;
-						}
-
-						@include lg {
-							margin: 20px 2vw;
-						}
-
-						@include sm {
-							margin: 4vw;
-						}
-						
-						a {
-							padding: 8px;
-						}
-					}
-				}
 			}
 
 			ul {
@@ -414,6 +282,18 @@ $breakpoints: ($all, $sm, $lg);
 				max-width: calc(50px + 10vw);
 				height: 100%;
 				border-radius: 5px 0 0 5px;
+				
+				&.work-2-1 {
+					background-image: url(./assets/img/money-id.jpeg);
+				}
+				
+				&.work-2-2 {
+					background-image: url(./assets/img/adwaita.jpg);
+				}
+				
+				&.work-1-2 {
+					background-image: url(./assets/img/suyash.png);
+				}
 				
 				&.work-1 {
 					background-image: url(./assets/img/vaishnava.png);
@@ -472,8 +352,39 @@ $breakpoints: ($all, $sm, $lg);
 	}
 }
 
+.me {
+  main {
+    max-height: calc(100vh - 40px);
+  }
+
+  footer {
+    display: none;
+  }
+}
+
+.projects footer {
+  background-color: white;
+}
+
+.skills footer {
+  @extend .dark;
+}
+
+.skills footer,
+.projects footer {
+  @include lg {
+    bottom: 0;
+  }
+
+  @extend .shadow-15;
+  @extend .w-100;
+}
+
 footer {
 	padding: 16px 0;
+  z-index: 2;
+  transition: all 0.5s;
+  position: fixed;
 
 	@include sm {
 		margin-bottom: 40px;
@@ -481,6 +392,15 @@ footer {
 
 	& > div a {
 		margin: 0 16px;
+    transition: all 0.5s;
+    animation-name: appear;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+
+		&:last-child {
+			font-weight: bold;
+			padding: 10px;
+		}
 	}
 }
 
