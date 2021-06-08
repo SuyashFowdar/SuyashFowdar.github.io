@@ -1,37 +1,24 @@
-# Portfolio
+# portfolio
 
-> My personal portfolio containing my skills, projects and contact details.
+## Project setup
+```
+npm install
+```
 
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-## Demo Link
+### Compiles and minifies for production
+```
+npm run build
+```
 
-[Go to the Portfolio](https://suyashfowdar.github.io/)
+### Lints and fixes files
+```
+npm run lint
+```
 
-## Built With
-
-- JavaScript
-- HTML
-- CSS
-- VScode
-
-## Contributing
-
-Contributions, issues and feature requests are welcome! Start by:
-
-  - Forking the project
-  - Cloning the project to your local machine
-  - cd into the project directory
-  - Run git checkout -b your-branch-name
-  - Make your contributions
-  - Push your branch up to your forked repository
-  - Open a Pull Request with a detailed description to the development branch of the original project for a review
-
-
-
-## Author
-
-👤 Suyash Fowdar
-Github: [@Krishnzzz](https://github.com/SuyashFowdar)
-
-## Show your Support
-Give a ⭐ if you like this project!
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
