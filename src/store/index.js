@@ -17,8 +17,6 @@ export default new Vuex.Store({
   modules: {
   },
   getters: {
-    getLoaded(state) {
-      return state.loaded;
-    }
+    getLoaded: (state) => state.loaded
   }
 })

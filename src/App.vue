@@ -274,52 +274,6 @@ $breakpoints: ($all, $sm, $lg);
 					margin-bottom: 10px;
 				}
 			}
-
-			.img {
-				background-size: cover;
-				background-repeat: no-repeat;
-				min-width: calc(50px + 10vw);
-				max-width: calc(50px + 10vw);
-				height: 100%;
-				border-radius: 5px 0 0 5px;
-				
-				&.work-2-1 {
-					background-image: url(./assets/img/money-id.jpeg);
-				}
-				
-				&.work-2-2 {
-					background-image: url(./assets/img/adwaita.jpg);
-				}
-				
-				&.work-1-2 {
-					background-image: url(./assets/img/suyash.png);
-				}
-				
-				&.work-1 {
-					background-image: url(./assets/img/vaishnava.png);
-				}
-				
-				&.work-2 {
-					background-image: url(./assets/img/krishna-shop.png);
-				}
-				
-				&.work-3 {
-					background-image: url(./assets/img/tech-news.png);
-				}
-				
-				&.work-4 {
-					background-image: url(./assets/img/bike-shooter.png);
-					background-position-x: 80%;
-				}
-				
-				&.work-5 {
-					background-image: url(./assets/img/meow.png);
-				}
-				
-				&.work-6 {
-					background-image: url(./assets/img/baby-tracker.png);
-				}
-			}
 		}
 	}
 

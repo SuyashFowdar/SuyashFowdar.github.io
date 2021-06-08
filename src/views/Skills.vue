@@ -6,10 +6,12 @@
         <h3 class="dark w-100 row cross-center">Languages</h3>
         <ul>
           <li>JavaScript</li>
-          <li>Ruby</li>
-          <li>Dart</li>
           <li>HTML5</li>
           <li>CSS3</li>
+          <li>Ruby</li>
+          <li>Dart</li>
+          <li>PHP</li>
+          <li>SQL</li>
         </ul>
       </article>
       <article class="col main-center cross-start shadow-15">
