@@ -13,7 +13,7 @@
         <a href="https://www.github.com/suyashfowdar/" target="_blank"><i class="fab fa-github fa-2x"></i></a>
         <a href="https://twitter.com/SuyashFowdar" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
         <a href="https://www.linkedin.com/in/suyash-fowdar/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-        <a href="mailto:suyash.krishna9@gmail.com"><i class="fas fab fa-envelope fa-2x"></i></a>
+        <a href="mailto:suyashkrishnadas@gmail.com"><i class="fas fab fa-envelope fa-2x"></i></a>
         <a :href="require('../assets/pdf/SuyashFowdar.pdf')" class="clickable row cross-center" target="_blank">Resume</a>
       </div>
     </footer>
